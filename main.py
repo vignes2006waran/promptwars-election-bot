@@ -2,7 +2,10 @@ from fastapi import FastAPI
 from fastapi.responses import HTMLResponse, JSONResponse
 from pydantic import BaseModel
 from google import genai
+from dotenv import load_dotenv
 import os
+
+load_dotenv()
 
 app = FastAPI()
 
@@ -30,7 +33,7 @@ Rules:
 - Use bullet points and emojis where helpful
 - Always end with an encouraging note about the importance of voting."""
 
-HTML_PAGE = """<!DOCTYPE html>
+HTML_PAGE = r"""<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
@@ -146,7 +149,7 @@ HTML_PAGE = """<!DOCTYPE html>
   </div>
   <div id="chat">
     <div class="welcome" id="welcome">
-      <div class="welcome-icon" style="font-size:52px;margin-bottom:8px;">&#127470;&#127475;</div>
+      <div class="welcome-icon" style="font-size:52px;margin-bottom:8px;">🗳️</div>
       <h2>How can I help you today?</h2>
       <p>Ask me anything about the Indian election process — voter registration, polling booths, EVMs, voter rights, and more.</p>
       <div class="welcome-chips">
@@ -179,7 +182,7 @@ HTML_PAGE = """<!DOCTYPE html>
   function newChat(){
     chatHistory=[];
     var chat=document.getElementById('chat');
-    chat.innerHTML='<div class="welcome" id="welcome"><div class="welcome-icon">🇮🇳</div><h2>How can I help you today?</h2><p>Ask me anything about the Indian election process.</p><div class="welcome-chips"><div class="welcome-chip" onclick="askQuick(\'How do I register as a voter?\')">How do I register as a voter?</div><div class="welcome-chip" onclick="askQuick(\'How does EVM work?\')">How does EVM work?</div></div></div>';
+    chat.innerHTML='<div class="welcome" id="welcome"><div class="welcome-icon">🗳️</div><h2>How can I help you today?</h2><p>Ask me anything about the Indian election process.</p><div class="welcome-chips"><button class="welcome-chip" type="button" onclick="askQuick(\x27How do I register as a voter?\x27)">How do I register as a voter?</button><button class="welcome-chip" type="button" onclick="askQuick(\x27How does EVM work?\x27)">How does EVM work?</button></div></div>';
   }
   function askQuick(q){
     document.getElementById('userInput').value=q;
