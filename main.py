@@ -49,7 +49,7 @@ HTML_PAGE = """<!DOCTYPE html>
     .sidebar-divider{height:1px;background:#e5e5e5;margin:12px 0}
     .sidebar-label{font-size:11px;color:#8e8ea0;font-weight:500;padding:0 8px;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em}
     .quick-list{display:flex;flex-direction:column;gap:2px}
-    .quick-item{padding:8px 12px;border-radius:8px;font-size:13px;color:#444;cursor:pointer;transition:background .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .quick-item{padding:8px 12px;border-radius:8px;font-size:13px;color:#444;cursor:pointer;transition:background .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border:none;background:transparent;width:100%;text-align:left;font-family:'Inter',sans-serif}
     .quick-item:hover{background:#ececec;color:#0d0d0d}
     .sidebar-footer{margin-top:auto;padding-top:12px;border-top:1px solid #e5e5e5}
     .lang-section{padding:8px}
@@ -119,13 +119,13 @@ HTML_PAGE = """<!DOCTYPE html>
   <div class="sidebar-divider"></div>
   <div class="sidebar-label">Quick Topics</div>
   <div class="quick-list">
-    <div class="quick-item" onclick="askQuick('How do I register as a voter in India?')">📝 Voter Registration</div>
-    <div class="quick-item" onclick="askQuick('How to find my polling booth?')">📍 Find Polling Booth</div>
-    <div class="quick-item" onclick="askQuick('What documents do I need on election day?')">📄 Documents Needed</div>
-    <div class="quick-item" onclick="askQuick('How does the EVM machine work?')">🖥️ How EVM Works</div>
-    <div class="quick-item" onclick="askQuick('How to check my name in voter list?')">🔍 Check Voter List</div>
-    <div class="quick-item" onclick="askQuick('What is NOTA and how to use it?')">❓ What is NOTA?</div>
-    <div class="quick-item" onclick="askQuick('What are my rights as a voter?')">⚖️ Voter Rights</div>
+    <button class="quick-item" type="button" onclick="askQuick('How do I register as a voter in India?')">📝 Voter Registration</button>
+    <button class="quick-item" type="button" onclick="askQuick('How to find my polling booth?')">📍 Find Polling Booth</button>
+    <button class="quick-item" type="button" onclick="askQuick('What documents do I need on election day?')">📄 Documents Needed</button>
+    <button class="quick-item" type="button" onclick="askQuick('How does the EVM machine work?')">🖥️ How EVM Works</button>
+    <button class="quick-item" type="button" onclick="askQuick('How to check my name in voter list?')">🔍 Check Voter List</button>
+    <button class="quick-item" type="button" onclick="askQuick('What is NOTA and how to use it?')">❓ What is NOTA?</button>
+    <button class="quick-item" type="button" onclick="askQuick('What are my rights as a voter?')">⚖️ Voter Rights</button>
   </div>
   <div class="sidebar-footer">
     <div class="lang-section">
@@ -146,14 +146,14 @@ HTML_PAGE = """<!DOCTYPE html>
   </div>
   <div id="chat">
     <div class="welcome" id="welcome">
-      <div class="welcome-icon">🇮🇳</div>
+      <div class="welcome-icon" style="font-size:52px;margin-bottom:8px;">&#127470;&#127475;</div>
       <h2>How can I help you today?</h2>
       <p>Ask me anything about the Indian election process — voter registration, polling booths, EVMs, voter rights, and more.</p>
       <div class="welcome-chips">
-        <div class="welcome-chip" onclick="askQuick('How do I register as a voter?')">How do I register as a voter?</div>
-        <div class="welcome-chip" onclick="askQuick('What is the voting age in India?')">What is the voting age?</div>
-        <div class="welcome-chip" onclick="askQuick('How does EVM work?')">How does EVM work?</div>
-        <div class="welcome-chip" onclick="askQuick('What documents do I need on election day?')">Documents needed for voting</div>
+        <button class="welcome-chip" type="button" onclick="askQuick('How do I register as a voter?')">How do I register as a voter?</button>
+        <button class="welcome-chip" type="button" onclick="askQuick('What is the voting age in India?')">What is the voting age?</button>
+        <button class="welcome-chip" type="button" onclick="askQuick('How does EVM work?')">How does EVM work?</button>
+        <button class="welcome-chip" type="button" onclick="askQuick('What documents do I need on election day?')">Documents needed for voting</button>
       </div>
     </div>
   </div>
