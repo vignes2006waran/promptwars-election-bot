@@ -41,8 +41,15 @@ class ChatRequest(BaseModel):
 
 @app.get("/", response_class=HTMLResponse)
 async def root():
-    with open("index.html", "r") as f:
-        return f.read()
+    import pathlib
+    possible_paths = [
+        pathlib.Path("index.html"),
+        pathlib.Path(__file__).parent / "index.html",
+    ]
+    for path in possible_paths:
+        if path.exists():
+            return path.read_text()
+    return HTMLResponse("<h1>index.html not found</h1>", status_code=404)
 
 @app.post("/chat")
 async def chat(req: ChatRequest):
